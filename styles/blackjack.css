@@ -1,0 +1,305 @@
+/* Main DOM elements */
+body {
+  font-family: 'Calibri', 'Helvetica', 'Arial', sans-serif;
+  background-color: #154700; /*#0F3300;*/
+  font-size: 28pt;
+  font-weight: bold;
+  color: #ffffff;
+  /* Add black outline to text for contrast */
+  -webkit-text-stroke: 1.2px black;
+  cursor: default;
+  /* Disable cursor selection  */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+button {
+  background-color: #111111;
+  border-color: #333333;
+  color: #dddddd;
+  font-size: 22pt;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 3pt;
+  width: 120pt;
+  height: 50px;
+}
+button:hover {
+  color: #ffffff;
+  border-color: #555555;  
+}
+
+/*
+table,tr,td,div {
+  border: 2px solid darkgreen;
+}
+div,span,tr,td  {
+  border: 2px solid forestgreen;
+} */
+
+/* Horizontal rule is large white line with black outline (casino style) */
+hr {
+  background-color: white;
+  border: 1px solid black;
+  height: 4px;
+  width: 700px;
+  margin-top: 0px;
+  margin-bottom: 7px;
+}
+
+/* Larege BLACKJACK banner on top */
+.mainHeader {
+  font-size: 40pt;
+  font-family: 'Book Antiqua', serif, 'Times New Roman';
+}
+
+.gbSingleCard {
+  display: none;
+  background-color: white;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  color: #333333;
+  width: 98px;
+  text-align: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.gbSingleCard:hover {
+  background-color: #eeeeee;
+  border-color: #333333;
+} 
+
+/* Banner cards use a white background with black text */
+.cardDeckFontBlack {
+  font-size: 35pt;
+  color: black;
+  background-color: white;
+  border-radius: 2px;
+  font-weight: normal;
+/* This limits the text for a faux card effect */
+  display: inline-block;
+  line-height: 100%;
+  height: 100%;
+  -webkit-text-stroke: 0px;
+/* Middle card is not rotated but set to 0 so it sits on top */
+  transform: rotate(0deg);
+  }
+/* Red text for hearts and diamonds, rotate card for style */
+.cardDeckFontRed {
+  font-size: 35pt;
+  color: red;
+  background-color: white;
+  border-radius: 2px;
+  font-weight: normal;
+  display: inline-block;
+  line-height: 100%;
+  height: 100%;
+  -webkit-text-stroke: 0px;
+  transform: rotate(-20deg);
+  }
+/* The 2nd red card is rotated more and in the opposite direction */
+.cardDeckFontRed2 {
+  font-size: 35pt;
+  color: red;
+  background-color: white;
+  border-radius: 2px;
+  font-weight: normal;
+  display: inline-block;
+  line-height: 100%;
+  height: 100%;
+  -webkit-text-stroke: 0px;
+  transform: rotate(30deg);
+  }
+
+/* Digital scoreboard style for top status bar */
+.statusOutline {
+  width: 700px;
+  height: 32px;
+  border: 1px solid #555555;
+  background-color: #000000;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #000000,
+    #000000 2px,
+    #111111 2px,
+    #111111 4px
+  );
+}
+
+/* [HIT] button */
+#btnHit {
+  height: 60px;
+  color: chartreuse;
+}
+#btnHit:hover {
+  color: #afff60;
+}
+
+/* [STAND] button */
+#btnStand {
+  height: 60px;
+  color: indianred;
+}
+#btnStand:hover {
+  color: #f26d6d;
+}
+
+/* [DEAL NEW HAND] button */
+#btnNewGame {
+  height: 65px;
+  width: 250pt;
+}
+
+#btnDoubleDown {
+  height: 50px;
+  width: 250pt;
+}
+
+/* Bet buttons */
+.btnBet {
+  width: 75px;
+}
+
+/* Buttons are aligned to the bottom center */
+.btnTable {
+  text-align: center;
+  vertical-align: bottom;
+  padding: 5px;
+}
+
+/* Font for keyboard shortcut guide */
+.keyGuideTxt {
+  font-family: 'Consolas', fixed;
+  font-size: 18pt;
+}
+
+/* A smaller, invisible <hr> for smaller gaps */
+.smallLine {
+  visibility: hidden;
+  height: 7px;
+  width: 100px;
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+}
+
+/* Set most elements to fixed 730px width */
+.fixedTable {
+  width: 705px;
+  text-align: left;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 1px;
+}
+
+/* Player and dealer's total money */
+#playerScoreTotalTxt, #dealerScoreTotalTxt {
+/*  font-weight: normal; */
+  font-size: 24pt;
+  text-align: right;
+  align-content: right;
+  width: 20%;
+  cursor: pointer;
+}
+
+.betLead {
+  font-size: 22pt;
+  width: 25%;
+  text-align: right;
+}
+
+#playerBetTxt, #playerWinningsTxt {
+  font-size: 22pt;
+  color: #afff60;
+  text-align: left;
+  cursor: pointer;
+  width: 30%;
+}
+
+/* Player and dealer's score for current hand */
+#playerScoreTxt, #dealerScoreTxt {
+  font-size: 24pt;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Main game board where cards are displayed, Serif font looks similar to a card font */
+#gameBoardPlayer, #gameBoardDealer {
+/*  color: #333333; */
+  font-family: 'Book Antiqua', serif, 'Times New Roman'; /* 'Book Antiqua', 'Rockwell' */
+  font-size: 45pt;
+  font-weight: bold;
+  height: 160px;
+  cursor: pointer;
+}
+
+/* Add fade animation to scoreboard */
+#statusBarTxt {
+/* LCD font looks terrible in Chromium browsers */
+/*  font-family: 'Digital-7 Mono', 'LCDMono2'; */
+/*  font-family: 'Impact', 'Haettenschweiler', sans-serif; */
+  font-size: 18pt;
+  letter-spacing: 2pt;
+  text-align: center;
+  -webkit-text-stroke: 0;
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;  
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Toast message for deck shuffle */
+#toastMessage {
+  font-size: 18pt;
+  font-weight: bold;
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -150px;
+  background-color: #2a2a2a;
+  color: #efefef;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 2px;
+  padding: 10px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 352px;
+}
+#toastMessage.show {
+  visibility: visible;
+  animation: fadeintoast 0.5s;
+}
+@keyframes fadeintoast {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

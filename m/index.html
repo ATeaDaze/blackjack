@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="A basic blackjack game written in JavaScript" />
+  <meta name="keywords" content="free, blackjack, app, javascript, online, casino" />
+  <title>Blackjack 📱 Mobile</title>
+  <link href="styles/blackjack-mobile.css" rel="stylesheet">
+  <link href="../images/blackjack.ico" rel="shortcut icon" type="image/x-icon">
+  <base target="_blank">
+<script src="scripts/jquery-3.7.0.min.js"></script>
+</head>
+<!-- Deal new hand on page load -->
+<body onload="mainGameLoop();">
+  <script src="scripts/main.js"></script>
+
+  <center>
+    <!-- Display BLACKJACK banner with ornamental cards -->
+    <span class="cardDeckFontRed">🃊</span><span class="cardDeckFontBlack">🂡</span>&nbsp;
+    <span class="mainHeader">B L A C K J A C K</span>&nbsp;
+    <span class="cardDeckFontBlack">🃑</span><span class="cardDeckFontRed2">🂺</span>
+    <!-- Notification when 52 cards have been used -->
+    <span id="toastMessage">52 Cards Used 🎲 Shuffling Deck</span>
+ 
+    <!-- Status bar -->
+    <table>
+      <tr>
+        <td class="statusOutline">
+          <!-- Status Bar -->
+          <div id="statusBarTxt"></div>
+        </td>
+      </tr>
+    </table>
+
+    <table class="fixedTable">
+      <tr>
+<!-- Shows win/loss of money
+          <td id="playerWinningsLead" class="betLead"></td>
+          <td id="playerWinningsTxt" title="Win/Loss"></td>
+-->
+        <td id="playerScoreTxt"></td>
+        <td class="betLead">Bet:</td>
+        <td id="playerBetTxt" title="Current Bet"></td>
+        <td id="playerScoreTotalTxt" title="Player Cash">$250</td>
+      </tr>
+    </table>
+    <hr>
+    <!-- Player game board for cards -->
+    <div class="fixedTable">
+    <table>
+      <tr id="gameBoardPlayer">    
+        <!-- Card go here in their own TD -->
+      </tr>
+    </table>
+    </div><hr class="smallLine">
+   <table class="fixedTable">
+      <tr>
+          <td id="dealerScoreTxt"></td>
+
+          <td id="dealerScoreTotalTxt" title="Casino Bank">$1000</td>
+      </tr>
+    </table>
+  <hr>
+
+    <!-- Dealer game board for cards -->
+    <div class="fixedTable">
+    <table>
+      <tr id="gameBoardDealer">    
+        <!-- Card go here in their own TD -->
+      </tr>
+    </table>
+    </div>
+    <hr class="smallLine">
+
+    <!-- [DEAL NEW HAND], [DOUBLE DOWN], [STAND], and [HIT] buttons -->
+    <table class="fixedTable">
+       <tr>
+        <td class="btnTable">
+          <input type="image" src="../images/25.png" title="$25" class="btnBet" id="btnBet25" onclick="updateBetAmount(25);">
+          <input type="image" src="../images/50.png" title="$50" class="btnBet" id="btnBet50" onclick="updateBetAmount(50);">
+          <input type="image" src="../images/100.png" title="$100" class="btnBet" id="btnBet100" onclick="updateBetAmount(100);">
+          <input type="image" src="../images/200.png" title="$200" class="btnBet" id="btnBet200" onclick="updateBetAmount(200);">  
+          <hr class="smallLine">
+          <button onclick="doubleDown();" id="btnDoubleDown" class="btnNewGameStyle" title="Draw 1 more card for 2x payout">DOUBLE DOWN</button>
+          <hr class="smallLine">
+          <button onclick="restartGame();" id="btnNewGame" class="btnNewGameStyle" title="Deal a new hand">DEAL NEW HAND</button>
+          <hr class="smallLine">
+          <button id="btnStand" onclick="stand();" title="Stop drawing cards">STAND</button>&nbsp;
+          <button onclick="drawPlayerCard();" id="btnHit" title="Draw 1 card">HIT</button>
+        </td>
+      </tr>
+    </table>
+  </center>
+
+<!-- Preload images to prevent load latency -->
+<img src="../images/25.png" class="hidden">
+<img src="../images/50.png" class="hidden">
+<img src="../images/100.png" class="hidden">
+<img src="../images/200.png" class="hidden">
+<img src="../images/25active.png" class="hidden">
+<img src="../images/50active.png" class="hidden">
+<img src="../images/100active.png" class="hidden">
+<img src="../images/200active.png" class="hidden">
+<img src="../images/25outline.png" class="hidden">
+<img src="../images/50outline.png" class="hidden">
+<img src="../images/100outline.png" class="hidden">
+<img src="../images/200outline.png" class="hidden">
+
+</body>
+</html>
