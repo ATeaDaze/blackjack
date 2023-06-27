@@ -59,18 +59,23 @@ Each browser handles JavaScript sound differently. Some are stricter than others
 # FIXES
 
 * [x] Occasionally froze when looking for a new card
-  * **Cause:** crashed on `shuffleDeck()` if `nTotalCards > 51`
+  * **Cause:** crashed on `shuffleDeck()` if `nTotalCards > 311`
   * **Fix:** created offset to limit range of the check
 
 ```javascript
-// nTotalCards (number of cards used)
-// nCardsInPlay (number of cards on the table)
-nCardOffset = (52 - ncardsInPlay) - 4
+// nTotalCards: number of used cards
+// nCardsInPlay: number of cards on the table
+// deckSize: size of all decks combined (312)
+// decksLeft: number of remaining decks (rounded down to nearest integer)
+// fullDeck: array containing all six decks (cards 0:311)
+nCardOffset = (deckSize - nCardsInPlay) - 4;
 
 if(nTotalCards > nCardOffset) {
-  swapDecks(currentDeck);
-  shuffleDeck(currentDeck);
+  nTotalCards = 0;
+  decksLeft = 6;
+  shuffleDeck(fullDeck);
 }
+
 ```
 
 * [x] [TEST] Ties did not evaluate until `stand()` was called
